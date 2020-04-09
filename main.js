@@ -5,7 +5,7 @@ let mainWindow = null
 let devMode = process.env.NODE_ENV === 'development'
 
 let command = 'iex'
-let args = ['--sname', 'electron', '-S', 'mix', 'phoenix.server']
+let args = ['--sname', 'electron', '-S', 'mix', 'phx.server']
 
 if (process.platform === 'win32') {
   // garsh durn windows-nodejs and its inability to spawn a non-exe
@@ -14,6 +14,7 @@ if (process.platform === 'win32') {
 }
 
 let phoenix = spawn(command, args, { cwd: __dirname })
+
 phoenix.stdout.once('data', function open_window () {
   if (mainWindow) {
     mainWindow.loadURL('http://localhost:4000')

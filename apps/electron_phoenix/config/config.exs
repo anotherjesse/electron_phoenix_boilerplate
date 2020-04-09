@@ -3,21 +3,26 @@
 #
 # This configuration file is loaded before any dependency and
 # is restricted to this project.
+
+# General application configuration
 use Mix.Config
 
 # Configures the endpoint
-config :electron_phoenix, ElectronPhoenix.Endpoint,
+config :electron_phoenix, ElectronPhoenixWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "x39KBUFHglhLxOg3VYKdu5b3URg2ihllIXyLlV7p+jOKX5APmlXqHt+UxUbSc/DG",
-  render_errors: [view: ElectronPhoenix.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: ElectronPhoenix.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "YRgJR7vaeJpqR4Ra0tPm2SEhm2s03/BSCKrHJGYNOxBlK6FAzly1G2DDW5/+w80y",
+  render_errors: [view: ElectronPhoenixWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: ElectronPhoenix.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [signing_salt: "EYiKthnM"]
 
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Use Jason for JSON parsing in Phoenix
+config :phoenix, :json_library, Jason
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

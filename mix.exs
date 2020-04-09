@@ -1,28 +1,25 @@
-defmodule ElectronPhoenixBoilerplate.Mixfile do
+defmodule ElectronPhoenixBoilerplate.MixProject do
   use Mix.Project
 
   def project do
-    [apps_path: "apps",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps(),
-     dialyzer: [plt_add_deps: :transitive]]
+    [
+      apps_path: "apps",
+      version: "0.1.0",
+      start_permanent: Mix.env() == :prod,
+      deps: deps(),
+      dialyzer: [plt_add_deps: :transitive]
+    ]
   end
 
-  # Dependencies can be Hex packages:
+  # Dependencies listed here are available only for this
+  # project and cannot be accessed from applications inside
+  # the apps folder.
   #
-  #   {:my_dep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:my_dep, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options.
-  #
-  # Dependencies listed here are available only for this project
-  # and cannot be accessed from applications inside the apps folder
+  # Run "mix help deps" for examples and options.
   defp deps do
-    [{:credo, "~> 0.7", only: [:dev, :test]},
-     {:dialyxir, "~> 0.5", only: :dev}]
+    [
+      {:dialyxir, "~> 1.0", only: :dev},
+      {:credo, "~> 1.3", only: [:dev, :test]}
+    ]
   end
 end

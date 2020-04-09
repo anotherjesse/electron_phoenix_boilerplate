@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development electron ./main.js",
-    "postinstall": "cd apps/electron_phoenix && yarn"
+    "postinstall": "cd apps/electron_phoenix/assets && yarn"
   },
   "dependencies": {
     "cross-env": "^7.0.2",

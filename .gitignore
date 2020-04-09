@@ -1,14 +1,14 @@
-# App artifacts
-/_build
-/db
-/deps
-/*.ez
+# The directory Mix will write compiled artifacts to.
+/_build/
 
 # If you run "mix test --cover", coverage assets end up here.
-/cover
+/cover/
 
-# Where 3rd-party dependencies like ExDoc output generated docs.
-/doc
+# The directory Mix downloads your dependencies sources to.
+/deps/
+
+# Where third-party dependencies like ExDoc output generated docs.
+/doc/
 
 # Ignore .fetch files in case you like to edit your project deps locally.
 /.fetch
@@ -16,5 +16,10 @@
 # If the VM crashes, it generates a dump, let's ignore it too.
 erl_crash.dump
 
-# Static artifacts
-/node_modules
+# Also ignore archive artifacts (built via "mix archive.build").
+*.ez
+
+# vscode stuff and other build things
+/.elixir_ls/
+
+/node_modules/

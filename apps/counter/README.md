@@ -9,7 +9,9 @@ by adding `counter` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:counter, "~> 0.1.0"}]
+  [
+    {:counter, "~> 0.1.0"}
+  ]
 end
 ```
 
